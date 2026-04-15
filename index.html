@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joan Waithira Njoroge — Spatial Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white:        #f7f6f0;
+    --white2:       #f0eee5;
+    --white3:       #e8e5da;
+    --white4:       #ddd8ca;
+    --charcoal:     #1f2b2a;
+    --charcoal2:    #31413f;
+    --charcoal3:    #4e605d;
+    --rose:         #c2623c;
+    --rose-deep:    #9e4728;
+    --rose-light:   #f6e3d8;
+    --rose-mid:     #e6b69f;
+    --rose-muted:   #cf8e73;
+    --border:       #d9d4c8;
+    --border-dark:  #bdb5a6;
+    --gray:         #68706b;
+    --gray-light:   #89918c;
+    --ink:          #172b2a;
+    --ink-soft:     #284543;
+    --mist:         #e6efed;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--charcoal);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(1200px 520px at -8% -15%, rgba(194, 98, 60, 0.16), transparent 58%),
+      radial-gradient(960px 460px at 108% 4%, rgba(40, 69, 67, 0.12), transparent 52%),
+      linear-gradient(180deg, #fbfaf5 0%, #f7f6f0 34%, #f0eee5 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+  body::before {
+    opacity: 0.25;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(31, 43, 42, 0.028) 0, rgba(31, 43, 42, 0.028) 1px, transparent 1px, transparent 24px),
+      repeating-linear-gradient(90deg, rgba(31, 43, 42, 0.022) 0, rgba(31, 43, 42, 0.022) 1px, transparent 1px, transparent 24px);
+  }
+  body::after {
+    background:
+      radial-gradient(340px 220px at 18% 88%, rgba(194, 98, 60, 0.09), transparent 70%),
+      radial-gradient(300px 220px at 84% 78%, rgba(53, 106, 98, 0.09), transparent 72%);
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── SITE WRAPPER ── */
+  .site {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-left: 1.5px solid var(--border);
+    border-right: 1.5px solid var(--border);
+    min-height: 100vh;
+    background: rgba(247, 246, 240, 0.94);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 24px 70px rgba(23, 43, 42, 0.08);
+  }
+
+  /* ── NAV ── */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 36px; border-bottom: 1.5px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 100; }
+  .nav-name { font-family: var(--serif); font-size: 15px; color: var(--charcoal); letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 11px; color: var(--gray-light); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-badge { display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); padding: 6px 16px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal3); }
+  .nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); animation: pulse 2.2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+
+  /* ── HERO ── */
+  .hero { display: grid; grid-template-columns: 1.45fr 1fr; border-bottom: 1.5px solid var(--border); }
+  .hero-main { padding: 56px 44px 48px; border-right: 1.5px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .eyebrow-line { width: 28px; height: 1.5px; background: var(--rose); }
+  .eyebrow-text { font-size: 10px; color: var(--rose); letter-spacing: 0.16em; text-transform: uppercase; }
+  .hero-h1 { font-family: var(--serif); font-size: 60px; font-weight: 400; line-height: 1.0; letter-spacing: -0.01em; color: var(--charcoal); margin-bottom: 22px; }
+  .hero-h1 em { font-style: italic; color: var(--rose); }
+  .hero-sub { font-size: 13.5px; color: var(--gray); line-height: 1.75; max-width: 420px; margin-bottom: 32px; }
+  .hero-btns { display: flex; gap: 12px; margin-bottom: 40px; }
+  .btn-filled { font-family: var(--sans); font-size: 11px; font-weight: 500; background: var(--charcoal); color: var(--white); padding: 12px 26px; border: none; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+  .btn-filled:hover { background: var(--rose); }
+  .btn-outline { font-family: var(--sans); font-size: 11px; font-weight: 500; background: transparent; color: var(--charcoal); padding: 12px 26px; border: 1.5px solid var(--charcoal); cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; }
+  .btn-outline:hover { background: var(--charcoal); color: var(--white); }
+  .hero-langs { display: flex; gap: 6px; align-items: center; font-size: 11px; color: var(--gray-light); flex-wrap: wrap; }
+  .lang-sep { color: var(--border); }
+
+  /* ── BENTO TILES ── */
+  .hero-tiles { display: grid; grid-template-columns: 1fr 1fr; }
+  .tile { padding: 22px 20px; border-bottom: 1.5px solid var(--border); background: var(--white); transition: background 0.2s; }
+  .tile:nth-child(odd) { border-right: 1.5px solid var(--border); }
+  .tile:hover { background: var(--white2); }
+  .tile-label { font-size: 10px; color: var(--gray-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 9px; }
+  .tile-val { font-size: 14px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+  .tile-sub { font-size: 11px; color: var(--gray); margin-top: 3px; }
+  .tile-stat-big { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--charcoal); line-height: 1; }
+  .tile-stat-sub { font-size: 11px; color: var(--gray); margin-top: 4px; }
+  .tile.dark { background: var(--charcoal); }
+  .tile.dark:hover { background: var(--charcoal2); }
+  .tile.dark .tile-label { color: rgba(255,255,255,0.35); }
+  .tile.dark .tile-val { color: var(--white); }
+  .tile.dark .tile-sub { color: rgba(255,255,255,0.45); }
+  .tile.rose { background: var(--rose); }
+  .tile.rose:hover { background: var(--rose-deep); }
+  .tile.rose .tile-label { color: rgba(255,255,255,0.6); }
+  .tile.rose .tile-val { font-family: var(--serif); font-style: italic; color: #fff; font-size: 13px; line-height: 1.5; font-weight: 400; }
+  .tile.wide { grid-column: 1/3; border-right: none; border-bottom: none; }
+  .tile.wide:nth-child(odd) { border-right: none; }
+  .focus-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .focus-tag { font-size: 10px; border: 1px solid var(--border-dark); padding: 4px 11px; color: var(--charcoal3); letter-spacing: 0.04em; transition: all 0.2s; cursor: default; }
+  .focus-tag:hover { background: var(--charcoal); color: var(--white); border-color: var(--charcoal); }
+  .focus-tag.accent { border-color: var(--rose); color: var(--rose); background: var(--rose-light); }
+  .focus-tag.accent:hover { background: var(--rose); color: #fff; }
+
+  /* ── SECTION BAR ── */
+  .section-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 36px; border-bottom: 1.5px solid var(--border); background: var(--white2); }
+  .section-bar-label { font-size: 10px; color: var(--gray); letter-spacing: 0.12em; text-transform: uppercase; }
+  .section-bar-right { font-size: 10px; color: var(--gray-light); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── FEATURED PROJECT ── */
+  .proj-featured { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1.5px solid var(--border); }
+  .pf-left { padding: 36px 44px; border-right: 1.5px solid var(--border); }
+  .pf-num { font-size: 11px; color: var(--rose); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; font-family: var(--serif); }
+  .pf-name { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--charcoal); line-height: 1.2; margin-bottom: 14px; }
+  .pf-name em { font-style: italic; color: var(--rose); }
+  .pf-desc { font-size: 13px; color: var(--gray); line-height: 1.75; margin-bottom: 20px; }
+  .pf-tech { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tech-tag { font-size: 10px; border: 1px solid var(--border); color: var(--gray); padding: 4px 10px; letter-spacing: 0.04em; transition: all 0.2s; background: var(--white); }
+  .tech-tag:hover { border-color: var(--charcoal); color: var(--charcoal); }
+  .tech-tag.accent { border-color: var(--rose); color: var(--rose); background: var(--rose-light); }
+  .pf-right { padding: 36px; background: var(--white2); }
+  .pf-r-label { font-size: 10px; color: var(--gray-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+  .pf-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 11px 0; border-bottom: 0.5px solid var(--border); }
+  .pf-row:last-child { border-bottom: none; }
+  .pf-key { font-size: 11px; color: var(--gray-light); min-width: 80px; }
+  .pf-val { font-size: 11px; color: var(--charcoal); font-weight: 500; text-align: right; max-width: 200px; line-height: 1.4; }
+  .pf-val.link { color: var(--rose); cursor: pointer; }
+  .thesis-preview {
+    border-top: 1.5px solid rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #243635, #1b2828);
+    padding: 28px 32px 32px;
+  }
+  .thesis-preview-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .thesis-preview-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b8d8d3;
+    font-weight: 500;
+  }
+  .thesis-preview-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 760px;
+  }
+  .thesis-learnings {
+    margin: 0 0 16px;
+    padding-left: 18px;
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .thesis-learnings li { margin-bottom: 4px; }
+  .thesis-preview-link {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #def1ee;
+    border: 1px solid #9cc2bd;
+    padding: 7px 12px;
+    transition: all 0.2s;
+  }
+  .thesis-preview-link:hover {
+    background: #def1ee;
+    color: #1b3432;
+  }
+  .preview-frame {
+    width: 100%;
+    min-height: 460px;
+    border: 1px solid #bfd6d1;
+    background: #fff;
+    box-shadow: 0 14px 40px rgba(23, 31, 43, 0.08);
+  }
+  .preview-fallback {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ── PROJECT CARDS ── */
+  .proj-cards-wrap { padding: 32px 36px; border-bottom: 1.5px solid var(--border); background: var(--white); }
+  .proj-cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+  .proj-card { background: #fff; border: 1px solid var(--border); padding: 24px 22px 20px; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+  .proj-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--rose); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+  .proj-card:hover { border-color: var(--rose-mid); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(176,96,128,0.10); }
+  .proj-card:hover::after { transform: scaleX(1); }
+  .proj-card:hover .pc-arrow { color: var(--rose); }
+  .pc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+  .pc-num { font-family: var(--serif); font-size: 13px; color: var(--border-dark); font-style: italic; }
+  .pc-arrow { font-size: 15px; color: var(--border-dark); transition: color 0.2s; }
+  .pc-name { font-size: 14px; font-weight: 500; color: var(--charcoal); line-height: 1.35; margin-bottom: 8px; }
+  .pc-desc { font-size: 12px; color: var(--gray); line-height: 1.65; flex: 1; margin-bottom: 16px; }
+  .pc-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: auto; }
+  .pc-tag { font-size: 10px; color: var(--gray); background: var(--white2); padding: 3px 8px; border: 1px solid var(--border); }
+  .pc-tag.accent { background: var(--rose-light); color: var(--rose); border-color: var(--rose-mid); }
+
+  /* ── HONOURS ── */
+  .honours-wrap { border-bottom: 1.5px solid var(--border); }
+  .honours-card { display: grid; grid-template-columns: 1fr 1fr; }
+  .honours-left { padding: 44px 44px; border-right: 1.5px solid var(--border); background: var(--white); }
+  .honours-right { padding: 44px 40px; background: var(--white2); }
+  .honours-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .honours-eyebrow-line { width: 24px; height: 1.5px; background: var(--charcoal3); }
+  .honours-eyebrow-text { font-size: 10px; color: var(--charcoal3); letter-spacing: 0.14em; text-transform: uppercase; }
+  .honours-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--charcoal); line-height: 1.25; margin-bottom: 16px; }
+  .honours-title em { font-style: italic; color: var(--charcoal2); }
+  .honours-desc { font-size: 13px; color: var(--gray); line-height: 1.75; margin-bottom: 12px; }
+  .honours-desc:last-of-type { margin-bottom: 20px; }
+  .honours-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 22px; }
+  .honours-tag { font-size: 10px; border: 1px solid var(--border); color: var(--gray); padding: 4px 10px; letter-spacing: 0.04em; background: var(--white); }
+  .honours-tag.lit { border-color: var(--border-dark); color: var(--charcoal2); background: var(--white2); }
+  .honours-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--charcoal); padding: 7px 16px; font-size: 11px; color: var(--charcoal); letter-spacing: 0.08em; text-transform: uppercase; }
+  .honours-badge svg { flex-shrink: 0; }
+  .honours-r-label { font-size: 10px; color: var(--gray-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+  .honours-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 0.5px solid var(--border); }
+  .honours-row:last-of-type { border-bottom: none; }
+  .honours-key { font-size: 11px; color: var(--gray-light); min-width: 100px; }
+  .honours-val { font-size: 11px; color: var(--charcoal); font-weight: 500; text-align: right; max-width: 220px; line-height: 1.4; }
+
+  /* ── THESIS ── */
+  .thesis-wrap { border-bottom: 1.5px solid var(--border); }
+  .thesis-card { display: grid; grid-template-columns: 1fr 1fr; background: var(--charcoal); }
+  .thesis-left { padding: 44px 44px; border-right: 1.5px solid rgba(255,255,255,0.1); }
+  .thesis-eyebrow { font-size: 10px; color: var(--rose-mid); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .thesis-eyebrow-line { width: 20px; height: 1.5px; background: var(--rose-mid); }
+  .thesis-title { font-family: var(--serif); font-size: 30px; font-weight: 400; color: var(--white); line-height: 1.2; margin-bottom: 18px; }
+  .thesis-title em { font-style: italic; color: var(--rose-mid); }
+  .thesis-abstract { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 12px; }
+  .thesis-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+  .thesis-tag { font-size: 10px; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.5); padding: 4px 10px; letter-spacing: 0.04em; }
+  .thesis-tag.lit { border-color: var(--rose-mid); color: var(--rose-mid); background: rgba(176,96,128,0.15); }
+  .thesis-right { padding: 44px 40px; }
+  .thesis-meta-label { font-size: 10px; color: var(--rose-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+  .thesis-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
+  .thesis-row:last-of-type { border-bottom: none; }
+  .thesis-key { font-size: 11px; color: rgba(255,255,255,0.35); min-width: 90px; }
+  .thesis-val { font-size: 11px; color: rgba(255,255,255,0.8); font-weight: 500; text-align: right; max-width: 210px; line-height: 1.4; }
+  .thesis-val.link { color: var(--rose-mid); cursor: pointer; }
+  .thesis-badge { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--rose-mid); padding: 6px 16px; margin-top: 24px; font-size: 11px; color: var(--rose-mid); letter-spacing: 0.08em; text-transform: uppercase; }
+  .thesis-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose-mid); animation: pulse 2.2s infinite; }
+
+  /* ── PAPER CARDS ── */
+  .papers-wrap { padding: 32px 36px; border-bottom: 1.5px solid var(--border); background: var(--white); }
+  .papers-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  .paper-card { background: #fff; border: 1px solid var(--border); padding: 28px 26px 24px; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .paper-card:hover { border-color: var(--rose-mid); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(176,96,128,0.1); }
+  .paper-card.pending { background: var(--white2); }
+  .paper-card.pending:hover { border-color: var(--border-dark); }
+  .pc2-venue { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 10px; }
+  .paper-card.pending .pc2-venue { color: var(--gray); }
+  .pc2-badge { display: inline-block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--rose); color: var(--rose); padding: 2px 9px; margin-bottom: 12px; width: fit-content; }
+  .paper-card.pending .pc2-badge { border-color: var(--border-dark); color: var(--gray); }
+  .pc2-title { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 18px; line-height: 1.4; margin-bottom: 12px; flex: 1; color: var(--charcoal); }
+  .pc2-abstract { font-size: 12px; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
+  .pc2-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+  .pc2-tag { font-size: 10px; padding: 3px 8px; background: var(--white2); color: var(--gray); border: 1px solid var(--border); }
+  .pc2-tag.lit { background: var(--rose-light); color: var(--rose); border-color: var(--rose-mid); }
+  .paper-card.pending .pc2-tag.lit { background: var(--white3); color: var(--charcoal3); border-color: var(--border-dark); }
+
+  /* ── EXPERIENCE + STACK ── */
+  .bottom { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1.5px solid var(--border); }
+  .b-col { padding: 40px 44px; }
+  .b-col:first-child { border-right: 1.5px solid var(--border); }
+  .b-col-label { font-size: 10px; color: var(--gray-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item { display: flex; gap: 18px; padding-bottom: 24px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-spine { display: flex; flex-direction: column; align-items: center; width: 14px; flex-shrink: 0; padding-top: 4px; }
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--border-dark); background: var(--white); flex-shrink: 0; transition: all 0.2s; }
+  .tl-dot.active { background: var(--rose); border-color: var(--rose); }
+  .tl-vline { width: 1px; background: var(--border); flex: 1; margin-top: 5px; }
+  .tl-item:last-child .tl-vline { display: none; }
+  .tl-role { font-size: 13.5px; font-weight: 500; color: var(--charcoal); line-height: 1.3; }
+  .tl-org { font-size: 11px; color: var(--rose); margin-top: 2px; }
+  .tl-date { font-size: 10px; color: var(--gray-light); letter-spacing: 0.06em; margin-top: 3px; font-family: var(--serif); font-style: italic; }
+  .stack-group { margin-bottom: 20px; }
+  .stack-group:last-child { margin-bottom: 0; }
+  .stack-group-label { font-size: 10px; color: var(--gray-light); border-bottom: 0.5px solid var(--border); padding-bottom: 5px; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .stack-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sp { font-size: 11px; color: var(--charcoal3); border: 1px solid var(--border); padding: 4px 11px; background: #fff; transition: all 0.15s; }
+  .sp:hover { border-color: var(--charcoal); color: var(--charcoal); }
+  .sp.hot { border-color: var(--rose); color: var(--rose); background: var(--rose-light); }
+
+  /* ── EDUCATION + ABOUT ── */
+  .about-strip { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1.5px solid var(--border); }
+  .about-left { padding: 40px 44px; border-right: 1.5px solid var(--border); }
+  .about-right { padding: 40px 44px; }
+  .edu-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 0.5px solid var(--border); }
+  .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .edu-degree { font-size: 13.5px; font-weight: 500; color: var(--charcoal); }
+  .edu-school { font-size: 11px; color: var(--rose); margin-top: 2px; }
+  .edu-year { font-size: 10px; color: var(--gray-light); letter-spacing: 0.06em; margin-top: 3px; font-family: var(--serif); font-style: italic; }
+  .about-p { font-size: 13px; color: var(--gray); line-height: 1.8; margin-bottom: 12px; }
+  .about-p:last-of-type { margin-bottom: 0; }
+  .contact-list { display: flex; flex-direction: column; }
+  .contact-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid var(--border); }
+  .contact-item:last-child { border-bottom: none; }
+  .ci-label { font-size: 11px; color: var(--gray-light); letter-spacing: 0.08em; text-transform: uppercase; }
+  .ci-val { font-size: 12px; color: var(--charcoal); font-weight: 500; }
+  .ci-val a { color: var(--rose); }
+  .ci-val a:hover { text-decoration: underline; }
+  .interest-row { font-size: 13px; color: var(--gray); padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .interest-row:last-child { border-bottom: none; }
+
+  /* ── CONTACT SECTION ── */
+  .contact-section {
+    border-bottom: 1.5px solid var(--border);
+    background: linear-gradient(180deg, #fff 0%, var(--white2) 100%);
+  }
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+  }
+  .contact-main {
+    padding: 36px 44px 40px;
+    border-right: 1.5px solid var(--border);
+  }
+  .contact-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+  .contact-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+  .contact-intro {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 640px;
+    margin-bottom: 18px;
+  }
+  .contact-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .contact-btn {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    transition: all 0.2s;
+  }
+  .contact-btn:hover {
+    background: var(--charcoal);
+    color: #fff;
+  }
+  .contact-btn.primary {
+    background: var(--charcoal);
+    color: #fff;
+  }
+  .contact-btn.primary:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .contact-card {
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 12px 13px;
+  }
+  .contact-card-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-bottom: 5px;
+  }
+  .contact-card-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--charcoal);
+    word-break: break-word;
+  }
+  .contact-card-value a {
+    color: var(--rose);
+  }
+  .contact-card-value a:hover {
+    text-decoration: underline;
+  }
+  .contact-aside {
+    padding: 36px 36px 40px;
+    background: var(--white2);
+  }
+  .contact-aside-title {
+    font-size: 10px;
+    color: var(--gray-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .availability-list {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+  .availability-list li {
+    font-size: 13px;
+    color: var(--gray);
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+    line-height: 1.6;
+  }
+  .availability-list li:last-child {
+    border-bottom: none;
+  }
+  .contact-note {
+    font-size: 12px;
+    color: var(--charcoal3);
+    line-height: 1.7;
+    padding: 11px 12px;
+    border: 1px solid var(--border-dark);
+    background: #fff;
+  }
+
+  /* ── FOOTER ── */
+  footer { background: var(--charcoal); padding: 24px 36px; display: flex; align-items: center; justify-content: space-between; }
+  .f-name { font-family: var(--serif); font-style: italic; font-size: 15px; color: rgba(255,255,255,0.35); }
+  .f-links { display: flex; gap: 24px; }
+  .f-links a { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .f-links a:hover { color: var(--rose-mid); }
+  .f-copy { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(22px); animation: fadeUp 0.7s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .d1{animation-delay:0.10s}.d2{animation-delay:0.22s}.d3{animation-delay:0.34s}.d4{animation-delay:0.46s}.d5{animation-delay:0.58s}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-main{border-right:none;border-bottom:1.5px solid var(--border);padding:36px 24px;}
+    .hero-h1{font-size:42px;}
+    .tile.wide{grid-column:1/3;}
+    .proj-featured{grid-template-columns:1fr;}
+    .pf-left{border-right:none;border-bottom:1.5px solid var(--border);padding:28px 24px;}
+    .pf-right{padding:28px 24px;}
+    .thesis-preview{padding:22px 20px 24px;}
+    .preview-frame{min-height:380px;}
+    .proj-cards{grid-template-columns:1fr;}
+    .papers-grid{grid-template-columns:1fr;}
+    .proj-cards-wrap,.papers-wrap{padding:24px 20px;}
+    .thesis-card{grid-template-columns:1fr;}
+    .thesis-left{border-right:none;border-bottom:1.5px solid rgba(255,255,255,0.1);padding:32px 24px;}
+    .thesis-right{padding:28px 24px;}
+    .honours-card{grid-template-columns:1fr;}
+    .honours-left{border-right:none;border-bottom:1.5px solid var(--border);padding:28px 24px;}
+    .honours-right{padding:28px 24px;}
+    .bottom{grid-template-columns:1fr;}
+    .b-col:first-child{border-right:none;border-bottom:1.5px solid var(--border);}
+    .b-col{padding:28px 24px;}
+    .about-strip{grid-template-columns:1fr;}
+    .about-left{border-right:none;border-bottom:1.5px solid var(--border);padding:28px 24px;}
+    .about-right{padding:28px 24px;}
+    .contact-wrap{grid-template-columns:1fr;}
+    .contact-main{border-right:none;border-bottom:1.5px solid var(--border);padding:28px 24px;}
+    .contact-aside{padding:26px 24px 30px;}
+    .contact-title{font-size:30px;}
+    .contact-grid{grid-template-columns:1fr;}
+    nav{padding:14px 20px;}
+    .nav-links{display:none;}
+    .section-bar{padding:12px 20px;}
+    footer{padding:20px 24px;flex-direction:column;gap:14px;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="site">
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="nav-name">Joan Waithira Njoroge</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-badge"><div class="nav-dot"></div>Open to opportunities</div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-main">
+      <div>
+        <div class="hero-eyebrow fade-up d1">
+          <div class="eyebrow-line"></div>
+          <div class="eyebrow-text">Spatial Engineer · ITC Twente · MSc 2024–present</div>
+        </div>
+        <h1 class="hero-h1 fade-up d2">Building the<br><em>spatial layer</em><br>for smart cities.</h1>
+        <p class="hero-sub fade-up d3">I combine geospatial AI, digital twins, and climate modelling to make infrastructure intelligent and resilient — from field surveys across Kenya to predictive energy systems in Europe.</p>
+        <div class="hero-btns fade-up d4">
+          <a href="#work"><button class="btn-filled">View my work</button></a>
+          <a href="mailto:joanwaithira.jw@gmail.com"><button class="btn-outline">Get in touch</button></a>
+        </div>
+      </div>
+      <div class="hero-langs fade-up d5">
+        <span>English (C1)</span><span class="lang-sep">·</span>
+        <span>Dutch (B1)</span><span class="lang-sep">·</span>
+        <span>French (A2)</span><span class="lang-sep">·</span>
+        <span>Swahili / Kikuyu (Native)</span>
+      </div>
+    </div>
+    <div class="hero-tiles fade-up d3">
+      <div class="tile dark">
+        <div class="tile-label">Current role</div>
+        <div class="tile-val">Digital Twin Intern</div>
+        <div class="tile-sub">GATE Institute · Sofia, Bulgaria</div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Experience</div>
+        <div class="tile-stat-big">5+</div>
+        <div class="tile-stat-sub">Years · Kenya → Europe</div>
+      </div>
+      <div class="tile rose">
+        <div class="tile-label">MSc Thesis</div>
+        <div class="tile-val">Digital Twins for Smart Buildings — in progress</div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Conference</div>
+        <div class="tile-stat-big">4TU</div>
+        <div class="tile-stat-sub">Built Environment 2026</div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Honours</div>
+        <div class="tile-val">Research Honours</div>
+        <div class="tile-sub">University of Twente · PhD track</div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Education</div>
+        <div class="tile-val">MSc Spatial Engineering</div>
+        <div class="tile-sub">University of Twente</div>
+      </div>
+      <div class="tile wide">
+        <div class="tile-label">Focus areas</div>
+        <div class="focus-tags">
+          <span class="focus-tag accent">Digital Twins</span>
+          <span class="focus-tag accent">GeoAI</span>
+          <span class="focus-tag accent">Climate Risk</span>
+          <span class="focus-tag">Remote Sensing</span>
+          <span class="focus-tag">Smart Buildings</span>
+          <span class="focus-tag">Renewable Energy</span>
+          <span class="focus-tag">Spatial Data Science</span>
+          <span class="focus-tag">Academic Research</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="work">
+    <div class="section-bar">
+      <div class="section-bar-label">Selected case studies</div>
+      <div class="section-bar-right">07 Projects</div>
+    </div>
+    <div class="proj-featured">
+      <div class="pf-left">
+        <div class="pf-num">01 — Featured · Deployed prototype</div>
+        <div class="pf-name">Continuous learning<br><em>energy digital twin</em></div>
+        <p class="pf-desc">A deployed digital twin for building operations that combines live IoT feeds, harmonized 5-minute time-series, and forecasting models. The goal is practical: help facility teams detect anomalies early, compare floor-level trends, and improve day-to-day energy decisions.</p>
+        <p class="pf-desc">Built during my GATE Institute internship and used as the applied system behind my MSc thesis work and 4TU conference contribution.</p>
+        <div class="pf-tech">
+          <span class="tech-tag accent">Python</span>
+          <span class="tech-tag accent">Time-series ML</span>
+          <span class="tech-tag">IoT Sensors</span>
+          <span class="tech-tag">PostgREST API</span>
+          <span class="tech-tag">CesiumJS</span>
+          <span class="tech-tag">React</span>
+        </div>
+      </div>
+      <div class="pf-right">
+        <div class="pf-r-label">What is live in this build</div>
+        <div class="pf-row"><span class="pf-key">Data cadence</span><span class="pf-val">Unified to 5-minute intervals</span></div>
+        <div class="pf-row"><span class="pf-key">Data sources</span><span class="pf-val">Circuit electricity + indoor sensors</span></div>
+        <div class="pf-row"><span class="pf-key">Interface</span><span class="pf-val">3D building view + trend panels</span></div>
+        <div class="pf-row"><span class="pf-key">Use case</span><span class="pf-val">Operational monitoring and forecasting</span></div>
+        <div class="pf-row"><span class="pf-key">Context</span><span class="pf-val">GATE Institute · Sofia</span></div>
+        <div class="pf-row"><span class="pf-key">Paper link</span><a class="pf-val link" href="#research">4TU BE 2026 abstract ↗</a></div>
+      </div>
+    </div>
+    <div class="proj-cards-wrap">
+      <div class="proj-cards">
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">02</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">AI Facility Manager — MCP + LangChain</div>
+          <div class="pc-desc">Agentic AI assistant leveraging Model Context Protocol and LangChain for autonomous building operations, contextual reasoning, and intelligent facility management decisions.</div>
+          <div class="pc-tags"><span class="pc-tag accent">LangChain</span><span class="pc-tag accent">MCP</span><span class="pc-tag">Agentic AI</span><span class="pc-tag">Python</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">03</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Energy Monitoring Dashboard</div>
+          <div class="pc-desc">Web-based application for real-time visualisation of building energy consumption and operational data, connected to the PostgREST API with interactive circuit-level charts and indicators.</div>
+          <div class="pc-tags"><span class="pc-tag accent">JavaScript</span><span class="pc-tag">React</span><span class="pc-tag">REST API</span><span class="pc-tag">Data Viz</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">04</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Solar Climate Risk Assessment — Mafraq, Jordan</div>
+          <div class="pc-desc">Evaluated climate change impacts on solar farm efficiency, worker safety, and material durability using SSP2-4.5 and SSP5-8.5 scenarios and CMIP6 climate projection models.</div>
+          <div class="pc-tags"><span class="pc-tag accent">R</span><span class="pc-tag">CMIP6</span><span class="pc-tag">GIS</span><span class="pc-tag">Remote Sensing</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">05</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Solar Suitability GIS Model — Zwolle, Netherlands</div>
+          <div class="pc-desc">GIS-based spatial model identifying optimal solar energy deployment zones incorporating environmental, planning, and land-use constraints across Zwolle.</div>
+          <div class="pc-tags"><span class="pc-tag accent">QGIS</span><span class="pc-tag">Python</span><span class="pc-tag">Spatial Analysis</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">06</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Crop Suitability Modelling — Kenya &amp; Tanzania</div>
+          <div class="pc-desc">Agricultural suitability analysis for coffee and rice cultivation using DIVA-GIS and the EcoCrop model, integrating climate, soil, and terrain datasets across East Africa.</div>
+          <div class="pc-tags"><span class="pc-tag">DIVA-GIS</span><span class="pc-tag">EcoCrop</span><span class="pc-tag">GIS</span><span class="pc-tag">R</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">07</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Climate Data Visualisation — Jordan</div>
+          <div class="pc-desc">Processed long-term rainfall and temperature datasets (1983–2016) producing spatial heatmaps revealing climate variability and long-term trends across the region.</div>
+          <div class="pc-tags"><span class="pc-tag accent">R</span><span class="pc-tag">Spatial Heatmaps</span><span class="pc-tag">Climate Data</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESEARCH HONOURS ══ -->
+  <section id="honours">
+    <div style="display:flex; align-items:center; gap:28px; padding:22px 36px; border-bottom:1.5px solid var(--border); background:var(--white2); flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="7.5" cy="7.5" r="6.5" stroke="#c2623c" stroke-width="1.2"/>
+          <path d="M4.5 7.8L6.5 9.8L10.5 5.5" stroke="#c2623c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span style="font-size:11px; font-weight:500; color:var(--charcoal); letter-spacing:0.04em;">Master Research Honours</span>
+        <span style="font-size:11px; color:var(--gray-light);">· University of Twente</span>
+      </div>
+      <div style="width:1px; height:16px; background:var(--border); flex-shrink:0;"></div>
+      <p style="font-size:12px; color:var(--gray); line-height:1.6; max-width:620px;">An extra-curricular honours track for excellent MSc students, building skills in research management, academic publishing, and PhD proposal development through workshops and mentored sessions.</p>
+      <div style="margin-left:auto; display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0;">
+        <span style="font-size:10px; border:1px solid var(--border-dark); color:var(--charcoal3); padding:3px 10px;">Academic Writing</span>
+        <span style="font-size:10px; border:1px solid var(--border-dark); color:var(--charcoal3); padding:3px 10px;">PhD Preparation</span>
+        <span style="font-size:10px; border:1px solid var(--rose); color:var(--rose); padding:3px 10px; background:var(--rose-light);">In progress</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THESIS ══ -->
+  <section id="thesis">
+    <div class="section-bar">
+      <div class="section-bar-label">MSc Thesis</div>
+      <div class="section-bar-right">In progress · University of Twente</div>
+    </div>
+    <div class="thesis-wrap">
+      <div class="thesis-card">
+        <div class="thesis-left">
+          <div class="thesis-eyebrow">
+            <div class="thesis-eyebrow-line"></div>
+            MSc Spatial Engineering · ITC Faculty · University of Twente
+          </div>
+          <div class="thesis-title">Digital Twins for <em>Smart Buildings</em></div>
+          <p class="thesis-abstract">This thesis investigates how digital twin technologies can be applied to smart building management systems to enable continuous, data-driven monitoring of energy performance and indoor environmental conditions. The research addresses the full pipeline — from heterogeneous IoT sensor data acquisition and harmonisation, through machine learning-based energy forecasting, to integration within an interactive 3D geospatial digital twin platform.</p>
+          <p class="thesis-abstract">A key contribution is a reproducible sensor-to-API data infrastructure developed at the GATE Institute in Sofia — replicating institutional circuit-level electricity and environmental sensor data, harmonising multi-rate time-series onto a consistent 5-minute grid, and exposing processed datasets via a PostgREST API layer connected to a CesiumJS 3D building frontend.</p>
+          <div class="thesis-tags">
+            <span class="thesis-tag lit">Digital Twins</span>
+            <span class="thesis-tag lit">Smart Buildings</span>
+            <span class="thesis-tag lit">IoT / Sensor Data</span>
+            <span class="thesis-tag">Energy Forecasting</span>
+            <span class="thesis-tag">ML · LSTM · XGBoost</span>
+            <span class="thesis-tag">3D GIS · CesiumJS</span>
+            <span class="thesis-tag">PostgREST API</span>
+            <span class="thesis-tag">PostgreSQL</span>
+            <span class="thesis-tag">React</span>
+          </div>
+        </div>
+        <div class="thesis-right">
+          <div class="thesis-meta-label">Thesis details</div>
+          <div class="thesis-row"><span class="thesis-key">Programme</span><span class="thesis-val">MSc Spatial Engineering</span></div>
+          <div class="thesis-row"><span class="thesis-key">Faculty</span><span class="thesis-val">ITC — Geo-Information Science &amp; Earth Observation</span></div>
+          <div class="thesis-row"><span class="thesis-key">University</span><span class="thesis-val">University of Twente, Netherlands</span></div>
+          <div class="thesis-row"><span class="thesis-key">Study period</span><span class="thesis-val">2024 — present</span></div>
+          <div class="thesis-row"><span class="thesis-key">Research site</span><span class="thesis-val">GATE Institute · Sofia, Bulgaria</span></div>
+          <div class="thesis-row"><span class="thesis-key">Core methods</span><span class="thesis-val">Time-series ML, Data harmonisation, 3D GIS, REST API</span></div>
+          <div class="thesis-row"><span class="thesis-key">Related paper</span><span class="thesis-val link">4TU Conference 2026 ↗</span></div>
+          <div class="thesis-badge"><div class="thesis-badge-dot"></div>In progress</div>
+        </div>
+      </div>
+      <div class="thesis-preview">
+        <div class="thesis-preview-head">
+          <div class="thesis-preview-title">Live application preview</div>
+          <a class="thesis-preview-link" href="https://ai-building-silk.vercel.app/" target="_blank" rel="noopener noreferrer">Open full app ↗</a>
+        </div>
+        <p class="thesis-preview-note">This embedded preview shows the running digital twin interface used in the thesis workflow. If embedding is blocked by browser security headers, use the "Open full app" button.</p>
+        <ul class="thesis-learnings">
+          <li>Most useful in practice: quick comparison of floor-level loads before and after schedule changes.</li>
+          <li>Main engineering challenge: keeping sensor streams with different sample rates synchronized reliably.</li>
+          <li>Current limitation: not all anomaly alerts are automated yet, so manual review is still part of operations.</li>
+        </ul>
+        <iframe
+          class="preview-frame"
+          src="https://ai-building-silk.vercel.app/"
+          title="Continuous learning digital twin live preview"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+        <p class="preview-fallback">Preview URL: https://ai-building-silk.vercel.app/</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESEARCH / PAPERS ══ -->
+  <section id="research">
+    <div class="section-bar">
+      <div class="section-bar-label">Research &amp; publications</div>
+      <div class="section-bar-right">2 Papers</div>
+    </div>
+    <div class="papers-wrap">
+      <div class="papers-grid">
+        <div class="paper-card">
+          <div class="pc2-venue">4TU Built Environment Conference · Enschede, 2026</div>
+          <div class="pc2-badge">Published · Data-Driven Prediction Session</div>
+          <div class="pc2-title">A Sensor-to-API Data Infrastructure for Building Digital Twins: Harmonizing Multi-Rate IoT Energy and Indoor Data Streams for Proactive Analytics</div>
+          <div class="pc2-abstract">Presents a reproducible pipeline replicating institutional read-only sensor data into a private PostgreSQL environment, harmonising heterogeneous time-series onto a strict 5-minute grid, and exposing cleaned datasets via PostgREST. Circuit-level electricity and room-level environmental data are integrated with a CesiumJS 3D digital twin, enabling real-time monitoring, ML forecasting (LSTM, XGBoost, Random Forest), and spatially explicit building analytics at GATE Institute, Sofia.</div>
+          <div class="pc2-meta">
+            <span class="pc2-tag lit">Digital Twins</span><span class="pc2-tag lit">IoT / Sensor Data</span>
+            <span class="pc2-tag">PostgREST API</span><span class="pc2-tag">Energy Forecasting</span>
+            <span class="pc2-tag">ML · LSTM · XGBoost</span><span class="pc2-tag">3D GIS · CesiumJS</span>
+          </div>
+        </div>
+        <div class="paper-card pending">
+          <div class="pc2-venue">GeoSofia Conference · Sofia, Bulgaria</div>
+          <div class="pc2-badge">In progress · Upcoming submission</div>
+          <div class="pc2-title">Spatial Intelligence for Smart Buildings: Geospatial Approaches to Urban Digital Twin Development</div>
+          <div class="pc2-abstract">A geospatial investigation into how spatial data science and GIS methodologies strengthen the analytical foundation of urban-scale digital twin platforms — examining the integration of 3D building geometry, environmental sensor streams, and city-level geospatial datasets for location-sensitive building performance monitoring.</div>
+          <div class="pc2-meta">
+            <span class="pc2-tag lit">GeoAI</span><span class="pc2-tag lit">Spatial Engineering</span>
+            <span class="pc2-tag">Digital Twins</span><span class="pc2-tag">3D GIS</span>
+            <span class="pc2-tag">Smart Cities</span><span class="pc2-tag">Urban Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE + STACK ══ -->
+  <section id="experience">
+    <div class="section-bar">
+      <div class="section-bar-label">Experience &amp; stack</div>
+      <div class="section-bar-right">4 Roles · 2020–present</div>
+    </div>
+    <div class="bottom">
+      <div class="b-col">
+        <div class="b-col-label">Career timeline</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot active"></div><div class="tl-vline"></div></div>
+            <div>
+              <div class="tl-role">Digital Twin Intern</div>
+              <div class="tl-org">Big Data for Smart Society Institute (GATE) · Sofia, Bulgaria</div>
+              <div class="tl-date">February 2026 — Present</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot"></div><div class="tl-vline"></div></div>
+            <div>
+              <div class="tl-role">Public Service Intern — Surveyor</div>
+              <div class="tl-org">Tana and Athi Rivers Development Authority · Nairobi, Kenya</div>
+              <div class="tl-date">May 2023 — June 2024</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot"></div><div class="tl-vline"></div></div>
+            <div>
+              <div class="tl-role">Technical Sales Representative &amp; Survey Equipment Operator</div>
+              <div class="tl-org">Measurement Systems Limited · Nairobi, Kenya</div>
+              <div class="tl-date">September 2022 — December 2023</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot"></div></div>
+            <div>
+              <div class="tl-role">Land Surveyor Intern</div>
+              <div class="tl-org">Alliance Land Surveys · Nairobi, Kenya</div>
+              <div class="tl-date">March 2020 — May 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="b-col">
+        <div class="b-col-label">Tech stack</div>
+        <div class="stack-group">
+          <div class="stack-group-label">Languages &amp; web</div>
+          <div class="stack-pills">
+            <span class="sp hot">Python</span><span class="sp hot">R</span>
+            <span class="sp">JavaScript</span><span class="sp">SQL</span>
+            <span class="sp">HTML / CSS</span><span class="sp">Git / GitHub</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">GIS &amp; remote sensing</div>
+          <div class="stack-pills">
+            <span class="sp hot">QGIS</span><span class="sp hot">ArcGIS</span>
+            <span class="sp">DIVA-GIS</span><span class="sp">Pix4D</span><span class="sp">ERDAS Imagine</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">AI, ML &amp; engineering</div>
+          <div class="stack-pills">
+            <span class="sp hot">LangChain</span><span class="sp hot">MCP / Agentic AI</span>
+            <span class="sp">Digital Twins</span><span class="sp">Time-series ML</span><span class="sp">REST APIs</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">Surveying hardware</div>
+          <div class="stack-pills">
+            <span class="sp">GPS / Total Station</span>
+            <span class="sp">Ground Penetrating Radar</span>
+            <span class="sp">CORS Systems</span>
+            <span class="sp">Levelling Instruments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EDUCATION + ABOUT ══ -->
+  <section id="about">
+    <div class="section-bar"><div class="section-bar-label">Education &amp; about</div></div>
+    <div class="about-strip">
+      <div class="about-left">
+        <div class="b-col-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">MSc Spatial Engineering</div>
+          <div class="edu-school">University of Twente — Faculty of ITC · Enschede, Netherlands</div>
+          <div class="edu-year">2024 — Present</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Master Research Honours Programme</div>
+          <div class="edu-school">University of Twente · Extra-curricular PhD preparation track</div>
+          <div class="edu-year">2024 — Present</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Certificate in Software Engineering</div>
+          <div class="edu-school">ALX Africa</div>
+          <div class="edu-year">2023 — 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Technology — Surveying Technology</div>
+          <div class="edu-school">Technical University of Kenya · Nairobi, Kenya</div>
+          <div class="edu-year">2015 — 2020</div>
+        </div>
+        <div style="margin-top:32px;">
+          <div class="b-col-label">Research interests</div>
+          <div style="margin-top:4px;">
+            <div class="interest-row">Digital twins for smart infrastructure</div>
+            <div class="interest-row">Climate risk assessment &amp; environmental modelling</div>
+            <div class="interest-row">Renewable energy systems &amp; solar infrastructure</div>
+            <div class="interest-row">Geospatial artificial intelligence</div>
+            <div class="interest-row">Spatial data science &amp; decision support systems</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="b-col-label">About me</div>
+        <p class="about-p">I'm a spatial engineering graduate student at the University of Twente's ITC faculty, with a background spanning field surveying in Kenya, technical sales, GIS analysis, and now AI-powered digital twin development in Europe.</p>
+        <p class="about-p">My MSc thesis and internship at the GATE Institute focus on building an AI-driven energy digital twin that continuously learns from sensor data to forecast energy usage, optimise operations, and support smart facility management.</p>
+        <p class="about-p">Alongside my thesis, I'm enrolled in the University of Twente's Research Honours Programme — an extra-curricular track preparing excellent MSc students for PhD research through advanced training in research management, academic publishing, and proposal development.</p>
+        <div style="margin-top:28px;">
+          <div class="b-col-label">Get in touch</div>
+          <div class="contact-list">
+            <div class="contact-item"><span class="ci-label">Email</span><span class="ci-val"><a href="mailto:joanwaithira.jw@gmail.com">joanwaithira.jw@gmail.com</a></span></div>
+            <div class="contact-item"><span class="ci-label">University</span><span class="ci-val"><a href="mailto:j.w.njoroge@student.utwente.nl">j.w.njoroge@student.utwente.nl</a></span></div>
+            <div class="contact-item"><span class="ci-label">LinkedIn</span><span class="ci-val"><a href="https://linkedin.com/in/joanwaithira" target="_blank">linkedin.com/in/joanwaithira ↗</a></span></div>
+            <div class="contact-item"><span class="ci-label">GitHub</span><span class="ci-val"><a href="https://github.com/joanwaithira" target="_blank">github.com/joanwaithira ↗</a></span></div>
+            <div class="contact-item"><span class="ci-label">Phone</span><span class="ci-val">+31 657 757 079</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="contact-section">
+    <div class="section-bar">
+      <div class="section-bar-label">Contact</div>
+      <div class="section-bar-right">Open to research & engineering roles</div>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-main">
+        <h2 class="contact-title">Let's build something <em>impactful</em>.</h2>
+        <p class="contact-intro">I am currently open to MSc thesis collaborations, PhD opportunities, and geospatial AI or digital twin engineering roles. For the fastest response, email me directly and include your institution or project context.</p>
+        <div class="contact-actions">
+          <a class="contact-btn primary" href="mailto:joanwaithira.jw@gmail.com">Email me</a>
+          <a class="contact-btn" href="mailto:j.w.njoroge@student.utwente.nl">University email</a>
+          <a class="contact-btn" href="https://linkedin.com/in/joanwaithira" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card-label">Primary email</div>
+            <div class="contact-card-value"><a href="mailto:joanwaithira.jw@gmail.com">joanwaithira.jw@gmail.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-label">University email</div>
+            <div class="contact-card-value"><a href="mailto:j.w.njoroge@student.utwente.nl">j.w.njoroge@student.utwente.nl</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-label">Phone</div>
+            <div class="contact-card-value">+31 657 757 079</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-label">Location</div>
+            <div class="contact-card-value">Enschede, Netherlands</div>
+          </div>
+        </div>
+      </div>
+      <aside class="contact-aside">
+        <div class="contact-aside-title">Availability</div>
+        <ul class="availability-list">
+          <li>Available for part-time research assistant positions and thesis-linked projects.</li>
+          <li>Interested in PhD pathways focused on digital twins, GeoAI, and climate-smart infrastructure.</li>
+          <li>Open to conference, lab, and interdisciplinary collaborations across Europe.</li>
+        </ul>
+        <div class="contact-note">Typical response time: within 24-48 hours on weekdays.</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="f-name">Joan Waithira Njoroge</div>
+    <div class="f-links">
+      <a href="https://github.com/joanwaithira" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/joanwaithira" target="_blank">LinkedIn</a>
+      <a href="mailto:joanwaithira.jw@gmail.com">Email</a>
+    </div>
+    <div class="f-copy">© 2026</div>
+  </footer>
+
+</div>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.proj-card,.paper-card,.tl-item,.edu-item,.stack-group,.tile,.thesis-card,.honours-card').forEach(el => {
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
