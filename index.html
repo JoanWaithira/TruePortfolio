@@ -159,8 +159,8 @@
   .pf-val { font-size: 11px; color: var(--charcoal); font-weight: 500; text-align: right; max-width: 200px; line-height: 1.4; }
   .pf-val.link { color: var(--rose); cursor: pointer; }
   .thesis-preview {
-    border-top: 1.5px solid rgba(255,255,255,0.1);
-    background: linear-gradient(135deg, #243635, #1b2828);
+    border-top: 1.5px solid rgba(85, 125, 108, 0.25);
+    background: linear-gradient(135deg, #dbe8df, #edf5ef);
     padding: 28px 32px 32px;
   }
   .thesis-preview-head {
@@ -175,12 +175,12 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #b8d8d3;
+    color: #507260;
     font-weight: 500;
   }
   .thesis-preview-note {
     font-size: 12px;
-    color: rgba(255,255,255,0.65);
+    color: rgba(32, 54, 44, 0.72);
     line-height: 1.6;
     margin-bottom: 16px;
     max-width: 760px;
@@ -188,7 +188,7 @@
   .thesis-learnings {
     margin: 0 0 16px;
     padding-left: 18px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(32, 54, 44, 0.82);
     font-size: 12px;
     line-height: 1.7;
   }
@@ -197,26 +197,166 @@
     font-size: 11px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #def1ee;
-    border: 1px solid #9cc2bd;
+    color: #315243;
+    border: 1px solid #8fb29f;
     padding: 7px 12px;
     transition: all 0.2s;
+    background: rgba(255,255,255,0.65);
   }
   .thesis-preview-link:hover {
-    background: #def1ee;
-    color: #1b3432;
+    background: #315243;
+    color: #f5fbf7;
   }
   .preview-frame {
     width: 100%;
-    min-height: 460px;
+    min-height: 300px;
     border: 1px solid #bfd6d1;
     background: #fff;
     box-shadow: 0 14px 40px rgba(23, 31, 43, 0.08);
   }
+  .preview-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #bfd6d1;
+    box-shadow: 0 14px 40px rgba(23, 31, 43, 0.08);
+    background: rgba(255,255,255,0.4);
+    max-width: 760px;
+  }
+  .preview-shell.compact {
+    max-width: 620px;
+  }
+  .preview-shell .preview-frame {
+    border: 0;
+    box-shadow: none;
+    transition: filter 0.35s ease, transform 0.35s ease;
+  }
+  .preview-shell.is-blurred .preview-frame {
+    filter: blur(12px);
+    transform: scale(1.02);
+    pointer-events: none;
+  }
+  .preview-focus-panel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(180deg, rgba(73, 107, 90, 0.18), rgba(34, 59, 47, 0.5));
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .preview-shell.is-focused .preview-focus-panel {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .preview-focus-card {
+    max-width: 420px;
+    text-align: center;
+    padding: 24px 22px;
+    background: rgba(29, 49, 40, 0.86);
+    border: 1px solid rgba(227, 241, 232, 0.35);
+    backdrop-filter: blur(10px);
+    color: #eff8f6;
+  }
+  .preview-focus-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9fc8c1;
+    margin-bottom: 10px;
+  }
+  .preview-focus-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .preview-focus-text {
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 18px;
+  }
+  .preview-focus-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .preview-focus-btn {
+    border: 1px solid #def1ee;
+    background: #def1ee;
+    color: #16312f;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .preview-focus-btn:hover {
+    transform: translateY(-1px);
+  }
+  .preview-focus-btn.secondary {
+    background: transparent;
+    color: #def1ee;
+    border-color: rgba(222, 241, 238, 0.5);
+  }
+  .preview-focus-btn.secondary:hover {
+    background: rgba(222, 241, 238, 0.08);
+  }
   .preview-fallback {
     margin-top: 10px;
     font-size: 12px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(32, 54, 44, 0.6);
+  }
+  .project-preview-block {
+    margin-top: 26px;
+    padding: 24px 26px 28px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, #e2eee5, #f4f8f5);
+  }
+  .project-preview-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .project-preview-kicker {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #557665;
+  }
+  .project-preview-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .project-preview-note {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--gray);
+    max-width: 720px;
+    margin-bottom: 16px;
+  }
+  .project-preview-link {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #315243;
+    border: 1px solid #8fb29f;
+    padding: 7px 12px;
+    background: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+  }
+  .project-preview-link:hover {
+    background: #315243;
+    color: #f5fbf7;
   }
 
   /* ── PROJECT CARDS ── */
@@ -490,7 +630,11 @@
     .pf-left{border-right:none;border-bottom:1.5px solid var(--border);padding:28px 24px;}
     .pf-right{padding:28px 24px;}
     .thesis-preview{padding:22px 20px 24px;}
-    .preview-frame{min-height:380px;}
+    .preview-frame{min-height:240px;}
+    .preview-focus-card{padding:20px 18px;}
+    .preview-focus-title{font-size:20px;}
+    .project-preview-block{padding:20px 18px 24px;}
+    .project-preview-title{font-size:21px;}
     .proj-cards{grid-template-columns:1fr;}
     .papers-grid{grid-template-columns:1fr;}
     .proj-cards-wrap,.papers-wrap{padding:24px 20px;}
@@ -607,7 +751,7 @@
   <section id="work">
     <div class="section-bar">
       <div class="section-bar-label">Selected case studies</div>
-      <div class="section-bar-right">07 Projects</div>
+      <div class="section-bar-right">08 Projects</div>
     </div>
     <div class="proj-featured">
       <div class="pf-left">
@@ -672,6 +816,43 @@
           <div class="pc-desc">Processed long-term rainfall and temperature datasets (1983–2016) producing spatial heatmaps revealing climate variability and long-term trends across the region.</div>
           <div class="pc-tags"><span class="pc-tag accent">R</span><span class="pc-tag">Spatial Heatmaps</span><span class="pc-tag">Climate Data</span></div>
         </div>
+        <div class="proj-card">
+          <div class="pc-top"><span class="pc-num">08</span><span class="pc-arrow">→</span></div>
+          <div class="pc-name">Data Breach Monitoring Application</div>
+          <div class="pc-desc">Web application for monitoring data breach exposure, helping users track compromised accounts and review breach-related risk signals through a simple live interface. Live app: admirable-frangipane-065438.netlify.app</div>
+          <div class="pc-tags"><span class="pc-tag accent">Cybersecurity</span><span class="pc-tag">Monitoring</span><span class="pc-tag">Web App</span><span class="pc-tag">Data Breaches</span></div>
+        </div>
+      </div>
+      <div class="project-preview-block">
+        <div class="project-preview-head">
+          <div>
+            <div class="project-preview-kicker">Live project preview</div>
+            <div class="project-preview-title">Data Breach Monitoring Application</div>
+          </div>
+          <a class="project-preview-link" href="https://admirable-frangipane-065438.netlify.app/" target="_blank" rel="noopener noreferrer">Open full app ↗</a>
+        </div>
+        <p class="project-preview-note">A smaller embedded preview of the breach-monitoring app. It stays blurred until someone chooses to focus on it, keeping the section cleaner while still letting visitors explore the live build.</p>
+        <div class="preview-shell compact is-blurred" data-preview-shell>
+          <iframe
+            class="preview-frame"
+            src="https://admirable-frangipane-065438.netlify.app/"
+            title="Data breach monitoring application live preview"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+          <div class="preview-focus-panel">
+            <div class="preview-focus-card">
+              <div class="preview-focus-label">Preview control</div>
+              <div class="preview-focus-title">Choose to focus the breach monitor</div>
+              <p class="preview-focus-text">Activate the preview only when you want to inspect the live dashboard and breach-monitoring workflow.</p>
+              <div class="preview-focus-actions">
+                <button class="preview-focus-btn" type="button" data-preview-focus>Focus preview</button>
+                <a class="preview-focus-btn secondary" href="https://admirable-frangipane-065438.netlify.app/" target="_blank" rel="noopener noreferrer">Open full app</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="preview-fallback">Preview URL: https://admirable-frangipane-065438.netlify.app/</p>
       </div>
     </div>
   </section>
@@ -748,13 +929,26 @@
           <li>Main engineering challenge: keeping sensor streams with different sample rates synchronized reliably.</li>
           <li>Current limitation: not all anomaly alerts are automated yet, so manual review is still part of operations.</li>
         </ul>
-        <iframe
-          class="preview-frame"
-          src="https://ai-building-silk.vercel.app/"
-          title="Continuous learning digital twin live preview"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
+        <div class="preview-shell compact is-blurred" data-preview-shell>
+          <iframe
+            class="preview-frame"
+            src="https://ai-building-silk.vercel.app/"
+            title="Continuous learning digital twin live preview"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+          <div class="preview-focus-panel">
+            <div class="preview-focus-card">
+              <div class="preview-focus-label">Preview control</div>
+              <div class="preview-focus-title">Choose to focus the live app</div>
+              <p class="preview-focus-text">The embedded preview stays blurred until a visitor intentionally activates it. This keeps attention on the page until they are ready to explore the interface.</p>
+              <div class="preview-focus-actions">
+                <button class="preview-focus-btn" type="button" data-preview-focus>Focus preview</button>
+                <a class="preview-focus-btn secondary" href="https://ai-building-silk.vercel.app/" target="_blank" rel="noopener noreferrer">Open full app</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="preview-fallback">Preview URL: https://ai-building-silk.vercel.app/</p>
       </div>
     </div>
@@ -771,23 +965,23 @@
         <div class="paper-card">
           <div class="pc2-venue">4TU Built Environment Conference · Enschede, 2026</div>
           <div class="pc2-badge">Published · Data-Driven Prediction Session</div>
-          <div class="pc2-title">A Sensor-to-API Data Infrastructure for Building Digital Twins: Harmonizing Multi-Rate IoT Energy and Indoor Data Streams for Proactive Analytics</div>
-          <div class="pc2-abstract">Presents a reproducible pipeline replicating institutional read-only sensor data into a private PostgreSQL environment, harmonising heterogeneous time-series onto a strict 5-minute grid, and exposing cleaned datasets via PostgREST. Circuit-level electricity and room-level environmental data are integrated with a CesiumJS 3D digital twin, enabling real-time monitoring, ML forecasting (LSTM, XGBoost, Random Forest), and spatially explicit building analytics at GATE Institute, Sofia.</div>
+          <div class="pc2-title">Continuous Learning Energy Digital Twin for Smart Buildings</div>
+          <div class="pc2-abstract">Presents the live digital twin environment developed during my GATE Institute internship and thesis work, combining harmonised IoT streams, machine learning-based energy forecasting, and a CesiumJS building interface to support continuous monitoring, operational comparison, and data-driven building management.</div>
           <div class="pc2-meta">
-            <span class="pc2-tag lit">Digital Twins</span><span class="pc2-tag lit">IoT / Sensor Data</span>
-            <span class="pc2-tag">PostgREST API</span><span class="pc2-tag">Energy Forecasting</span>
+            <span class="pc2-tag lit">Digital Twins</span><span class="pc2-tag lit">Smart Buildings</span>
+            <span class="pc2-tag">Energy Forecasting</span><span class="pc2-tag">Continuous Learning</span>
             <span class="pc2-tag">ML · LSTM · XGBoost</span><span class="pc2-tag">3D GIS · CesiumJS</span>
           </div>
         </div>
         <div class="paper-card pending">
           <div class="pc2-venue">GeoSofia Conference · Sofia, Bulgaria</div>
           <div class="pc2-badge">In progress · Upcoming submission</div>
-          <div class="pc2-title">Spatial Intelligence for Smart Buildings: Geospatial Approaches to Urban Digital Twin Development</div>
-          <div class="pc2-abstract">A geospatial investigation into how spatial data science and GIS methodologies strengthen the analytical foundation of urban-scale digital twin platforms — examining the integration of 3D building geometry, environmental sensor streams, and city-level geospatial datasets for location-sensitive building performance monitoring.</div>
+          <div class="pc2-title">A Sensor-to-API Data Infrastructure for Building Digital Twins: Harmonizing Multi-Rate IoT Energy and Indoor Data Streams for Proactive Analytics</div>
+          <div class="pc2-abstract">Presents a reproducible pipeline replicating institutional read-only sensor data into a private PostgreSQL environment, harmonising heterogeneous time-series onto a strict 5-minute grid, and exposing cleaned datasets via PostgREST. Circuit-level electricity and room-level environmental data are integrated with a CesiumJS 3D digital twin, enabling real-time monitoring, ML forecasting, and spatially explicit building analytics at GATE Institute, Sofia.</div>
           <div class="pc2-meta">
-            <span class="pc2-tag lit">GeoAI</span><span class="pc2-tag lit">Spatial Engineering</span>
-            <span class="pc2-tag">Digital Twins</span><span class="pc2-tag">3D GIS</span>
-            <span class="pc2-tag">Smart Cities</span><span class="pc2-tag">Urban Analytics</span>
+            <span class="pc2-tag lit">Digital Twins</span><span class="pc2-tag lit">IoT / Sensor Data</span>
+            <span class="pc2-tag">PostgREST API</span><span class="pc2-tag">Energy Forecasting</span>
+            <span class="pc2-tag">ML · LSTM · XGBoost</span><span class="pc2-tag">3D GIS · CesiumJS</span>
           </div>
         </div>
       </div>
@@ -999,6 +1193,19 @@
     el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
     obs.observe(el);
   });
+
+  const previewShell = document.querySelector('[data-preview-shell]');
+  const previewFocusButton = document.querySelector('[data-preview-focus]');
+
+  if (previewShell && previewFocusButton) {
+    previewFocusButton.addEventListener('click', () => {
+      previewShell.classList.remove('is-blurred');
+      previewShell.classList.add('is-focused');
+    });
+  }
 </script>
 </body>
 </html>
+
+
+
